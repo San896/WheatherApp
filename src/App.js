@@ -46,6 +46,7 @@ function App() {
       setCities(oldCities => oldCities.filter((c) => c.id !== id));
     } 
 
+
   return (
     <div className={style.app}>
       <header className={style.header}>
@@ -69,6 +70,7 @@ function App() {
         <Cards
           cities={cities}
           onClose={onClose}
+          
           />
       </section>
      </main>

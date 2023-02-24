@@ -1,0 +1,80 @@
+.card{
+    position: relative;
+    border: 1px solid var(--border-color);
+    border-radius: 1rem; 
+    padding: 0.25rem;
+    margin: 2rem;   
+
+    background-color: var(--card-bkg-color);
+    color: white;
+
+    width: fit-content;
+
+    display: flex;
+    flex-direction:column;
+}
+
+
+.cardBtn {
+    position: absolute;
+    top: 0.25rem;
+    right: 0.25rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    box-sizing: border-box;
+    height:1.5rem ;
+    width: 1.5rem ;
+
+    border-radius: 9999px; 
+    border: 1px solid transparent;
+
+    cursor: pointer;
+    
+    background-color: var(--Btn-bkg-danger);
+    color: white;
+
+    transition: background-color 1000ms; 
+}
+
+.cardBtn:hover {  
+    background-color: var(--Btn-bkg-danger-hover);
+}
+
+.card > section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+}
+
+.name{
+    font-size: 1.5rem;
+    font-weight: 400; 
+    text-align: center;
+}
+
+.mainCard {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.mainCard .cardBtn {
+    display: none;
+}
+
+.mainCard .name {
+    font-size: 3rem;
+    text-align: left;
+    padding: 1rem;
+}
+
+.mainCard > section > img {
+    width: 150px;
+    height: 150px;
+}
+
+.mainCard > section > .temp {
+   
+    padding-top: 2rem;
+}
