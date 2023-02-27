@@ -16,8 +16,9 @@ export default function Cards({ cities, onClose, toMain }) {
        img={city.img}
        onClose={() => onClose(city.id)}
        
+       
        />
-    ))}
+       ))}
   </div>
   );
 };

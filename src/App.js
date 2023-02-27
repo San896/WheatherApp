@@ -15,6 +15,7 @@ function App() {
       .then(r => r.json())
       .then((recurso) => {
         if(recurso.main !== undefined){
+          // console.log(recurso, 'recursoooooo')
           const ciudad = {
             min: Math.round(recurso.main.temp_min), 
             max: Math.round(recurso.main.temp_max),
@@ -45,6 +46,9 @@ function App() {
     function onClose(id) {
       setCities(oldCities => oldCities.filter((c) => c.id !== id));
     } 
+
+    
+
 
 
   return (
