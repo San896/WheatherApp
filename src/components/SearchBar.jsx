@@ -9,7 +9,8 @@ export default function SearchBar({onSearch}) {
         onSubmit={(e) => {    
           e.preventDefault();
           const input = document.getElementById("cityInput")
-          onSearch(input.value);   
+          onSearch(input.value);  
+          input.value = '' 
         }}
       >
     <BiMap className={style.icon}/>
