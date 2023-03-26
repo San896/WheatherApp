@@ -15,10 +15,13 @@ export default function Cards({ cities, onClose, toMain }) {
        name={city.name}
        img={city.img}
        onClose={() => onClose(city.id)}
-       
+       toMain={() => toMain(city.id)}
        
        />
-       ))}
+       )
+       )
+      }
+      
   </div>
   );
 };

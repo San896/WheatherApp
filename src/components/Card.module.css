@@ -43,6 +43,34 @@
     background-color: var(--Btn-bkg-danger-hover);
 }
 
+.btnMain{
+    position: absolute;
+    bottom: 0.25rem;
+    right: 0.25rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    box-sizing: border-box;
+    height:1.2rem ;
+    width: 2.6rem ;
+
+    border-radius: 9px; 
+    border: 1px solid transparent;
+
+    cursor: pointer;
+
+    background-color: rgba(128, 128, 128, 0.205);
+    color: white;
+
+    transition: background-color 900ms; 
+}
+
+.btnMain:hover {  
+    background-color: rgba(128, 128, 128, 0.63);
+}
+
 .card > section {
     display: grid;
     grid-template-columns: repeat(3, 1fr); 

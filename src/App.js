@@ -8,7 +8,12 @@ import style from './App.module.css';
 const apiKey = process.env.REACT_APP_APIKEY;  
 
 function App() {
+
+
   const [cities, setCities] = React.useState([]); 
+  const [mainc, setMainc] = React.useState([]); 
+
+
 
   function onSearch(ciudad) {
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${apiKey}&units=metric`)
@@ -32,6 +37,8 @@ function App() {
 
           const exist = cities.find((c) => c.id === ciudad.id) 
           if(!exist) {
+            setMainc((oldCities) =>{ 
+              return [ciudad]});
             setCities((oldCities) =>{ 
               return [...oldCities, ciudad]}); 
           }
@@ -41,14 +48,19 @@ function App() {
         }
       });
     }
+    
     //
 
     function onClose(id) {
       setCities(oldCities => oldCities.filter((c) => c.id !== id));
     } 
 
+    const toMain = (id) => {
+      const find = cities.find( c => c.id === id)
+      console.log('find', find)
+      setMainc([find])
+    }
     
-
 
 
   return (
@@ -62,19 +74,27 @@ function App() {
       <main className={style.main}>
       <section className={style.mainCity}>
        { cities.length ?    
+        // (<Card
+        //   max={cities[cities.length - 1].max} 
+        //   min={cities[cities.length - 1].min}
+        //   name={cities[cities.length - 1].name}
+        //   img={cities[cities.length - 1].img}
+        //   // main={true}
+        //   />) : (<span> Vacio </span>) }
         (<Card
-          max={cities[cities.length - 1].max} 
-          min={cities[cities.length - 1].min}
-          name={cities[cities.length - 1].name}
-          img={cities[cities.length - 1].img}
-          main={true}
+          max={mainc[0].max} 
+          min={mainc[0].min}
+          name={mainc[0].name}
+          img={mainc[0].img}
+          state={mainc[0].name}
+           main={true}
           />) : (<span> Vacio </span>) }
       </section>
       <section className={style.otherCities}>
         <Cards
           cities={cities}
           onClose={onClose}
-          
+          toMain={toMain}
           />
       </section>
      </main>
