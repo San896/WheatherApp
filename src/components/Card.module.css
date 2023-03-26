@@ -85,6 +85,7 @@
 .mainCard {
     background-color: transparent;
     border-color: transparent;
+ 
 }
 
 .mainCard .cardBtn {
@@ -102,7 +103,7 @@
     height: 150px;
 }
 
-.mainCard > section > .temp {
+.mainCard > section > .Temp {
    
-    padding-top: 2rem;
+    padding-top: 1rem;
 }

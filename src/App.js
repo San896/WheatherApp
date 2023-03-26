@@ -20,7 +20,7 @@ function App() {
       .then(r => r.json())
       .then((recurso) => {
         if(recurso.main !== undefined){
-          // console.log(recurso, 'recursoooooo')
+          console.log(recurso, 'recursoooooo')
           const ciudad = {
             min: Math.round(recurso.main.temp_min), 
             max: Math.round(recurso.main.temp_max),
@@ -28,8 +28,13 @@ function App() {
             id: recurso.id,
             wind: recurso.wind.speed,
             temp: recurso.main.temp,
+            feelsLike: Math.round(recurso.main.feels_like),
+            humidity: recurso.main.humidity,
+            pressure: recurso.main.pressure,
             name: recurso.name,
+            country: recurso.sys.country,
             weather: recurso.weather[0].main,
+            description: recurso.weather[0].description,
             clouds: recurso.clouds.all,
             latitud: recurso.coord.lat,
             longitud: recurso.coord.lon
@@ -48,21 +53,21 @@ function App() {
         }
       });
     }
+    console.log('mainc', mainc)
     
     //
 
     function onClose(id) {
-      setCities(oldCities => oldCities.filter((c) => c.id !== id));
+        setCities(oldCities => oldCities.filter((c) => c.id !== id));
     } 
 
     const toMain = (id) => {
       const find = cities.find( c => c.id === id)
-      console.log('find', find)
       setMainc([find])
     }
     
 
-
+    
   return (
     <div className={style.app}>
       <header className={style.header}>
@@ -72,6 +77,7 @@ function App() {
       </header>
       
       <main className={style.main}>
+      <div className={style.divsection}>
       <section className={style.mainCity}>
        { cities.length ?    
         // (<Card
@@ -86,10 +92,25 @@ function App() {
           min={mainc[0].min}
           name={mainc[0].name}
           img={mainc[0].img}
+
+          wind= {mainc[0].wind}
+          temp= {mainc[0].temp}
+          feelsLike= {mainc[0].feelsLike}
+          humidity= {mainc[0].humidity}
+          pressure= {mainc[0].pressure}
+          country= {mainc[0].country}
+          weather= {mainc[0].weather}
+          description= {mainc[0].description}
+          clouds= {mainc[0].clouds}
+          latitud= {mainc[0].latitud}
+          longitud= {mainc[0].longitud}
+
+
           state={mainc[0].name}
            main={true}
-          />) : (<span> Vacio </span>) }
+          />) : (<span> Search a City </span>) }
       </section>
+      </div>
       <section className={style.otherCities}>
         <Cards
           cities={cities}
