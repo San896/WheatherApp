@@ -77,7 +77,7 @@ function App() {
       </header>
       
       <main className={style.main}>
-      <div className={style.divsection}>
+  
       <section className={style.mainCity}>
        { cities.length ?    
         // (<Card
@@ -110,7 +110,8 @@ function App() {
            main={true}
           />) : (<span> Search a City </span>) }
       </section>
-      </div>
+      
+      
       <section className={style.otherCities}>
         <Cards
           cities={cities}

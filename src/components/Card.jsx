@@ -11,12 +11,16 @@ export default function Card({max, min, name, img, onClose, main, toMain, state,
     <span className={style.name}>{name}</span>
     {/* <button onClick={onClose} className={style.cardBtn}>X</button> */}
     
-    <section>
-
+    <div>
+      
      { main ? <>
+     <section className={style.section}>
       <img src={`http://openweathermap.org/img/wn/${img}@2x.png`} alt="icono"/>
       <Temp className={style.Temp} label="Temp" value={temp} />
     <Temp className={style.Temp} label="FeelsLike" value={feelsLike} />
+    </section>
+    
+    <div className={style.div}>
     <Temp className={style.Temp} label="Weather" value={weather} />
     <Temp className={style.Temp} label="Min" value={min} />
     <Temp className={style.Temp} label="Max" value={max} />
@@ -27,14 +31,18 @@ export default function Card({max, min, name, img, onClose, main, toMain, state,
 
     <Temp className={style.Temp} label="Wind" value={wind} />
     <Temp className={style.Temp} label="Country" value={country} />
-
-    </>:<>
+    </div>
+    </>:
+    <section className={style.section}>
+    <>
         <button onClick={onClose} className={style.cardBtn}>X</button>
         <Temp className={style.Temp} label="Min" value={min} />
         <Temp className={style.Temp} label="Max" value={max} />
          <img src={`http://openweathermap.org/img/wn/${img}@2x.png`} alt="icono"/>
-         </> }
-    </section>
+         </>
+         </section>
+          }
+    </div>
     { !main ? <button  className={style.btnMain} onClick={toMain} > +Info </button> : ''} 
   </div>
   );
