@@ -47,7 +47,6 @@
 }
 
 
-/* no se puede borrar la ultima ciudad, por position fixed */
  .otherCities{
      position: relative; 
      left: 50rem  
